@@ -1,4 +1,4 @@
-import { Card } from "@radix-ui/themes"
+import { Button, Card } from "@radix-ui/themes"
 import { useMemo } from "react"
 
 type Props = {
@@ -27,8 +27,15 @@ export const Export = ({ content }: Props) => {
       }, {})
   }, [content])
 
-  return <div className="min-w-[44rem]">
-    {JSON.stringify(sanitized)}
+  const asString = JSON.stringify(sanitized, null, 2)
 
-  </div>
+  return <Card>
+    <div className="flex">
+      <h1 className="flex-1 font-bold text-lg tracking-wide">Export</h1>
+      <Button className="bg-gray-200 rounded-full p-1" onClick={() => navigator.clipboard.writeText(asString)}>Copy</Button>
+    </div>
+    <pre className="min-w-[44rem]">
+      {asString}
+    </pre>
+  </Card>
 }
