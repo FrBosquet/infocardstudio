@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Icon } from "./_icons";
 
 type Props = {
+  handleCTA: () => void,
   content: {
     modal?: string,
     card?: string,
@@ -12,7 +13,7 @@ type Props = {
   }
 }
 
-export const InfoCard = ({ content }: Props) => {
+export const InfoCard = ({ content, handleCTA }: Props) => {
   if (!content.card) return null
 
   return <div
@@ -24,7 +25,7 @@ export const InfoCard = ({ content }: Props) => {
         <p>{content.card}</p>
         {
           content.cta
-            ? <button className="flex items-center font-semibold text-pine pt-3">{content.cta} <ArrowRight size={16} /></button>
+            ? <button onClick={handleCTA} className="flex items-center font-semibold text-pine pt-3">{content.cta} <ArrowRight size={16} /></button>
             : null
         }
       </div>

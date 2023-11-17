@@ -7,6 +7,7 @@ import { Modal } from "./_modal";
 import { Export } from "./_export";
 
 export const Form = () => {
+  const [modalOpen, setModalOpen] = useState(false)
   const [state, setState] = useState({
     modal: '',
     card: '',
@@ -84,8 +85,8 @@ export const Form = () => {
       </Flex>
     </Card>
 
-    <Modal content={state} hidden={true} />
-    <InfoCard content={state} />
+    <Modal content={state} open={modalOpen} handleClose={() => setModalOpen(false)} />
+    <InfoCard content={state} handleCTA={() => setModalOpen(true)} />
     <Export content={state} />
   </>
 }
