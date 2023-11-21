@@ -1,16 +1,11 @@
 import { Dialog } from "@radix-ui/themes"
 import { X } from "lucide-react"
+import { Content } from "./_types"
 
 type Props = {
   handleClose: () => void,
   open: boolean,
-  content: {
-    modal?: string,
-    card?: string,
-    cta?: string,
-    color?: string,
-    image?: string
-  }
+  content: Content
 }
 
 export const Modal = ({ content: { modal }, open, handleClose }: Props) => {

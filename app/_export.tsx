@@ -1,14 +1,9 @@
 import { Button, Card } from "@radix-ui/themes"
 import { useMemo } from "react"
+import { Content } from "./_types"
 
 type Props = {
-  content: {
-    modal?: string,
-    card?: string,
-    cta?: string,
-    color?: string,
-    image?: string
-  }
+  content: Content
 }
 
 export const Export = ({ content }: Props) => {
@@ -17,6 +12,7 @@ export const Export = ({ content }: Props) => {
     return Object
       .entries(content)
       .reduce<Record<string, string>>((acc, [key, value]) => {
+        if (key === 'title') return acc
         if (key === 'image' && value === 'none') return acc
         if (!value) return acc
 

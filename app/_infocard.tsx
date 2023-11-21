@@ -1,16 +1,11 @@
 import { Card } from "@radix-ui/themes"
 import { ArrowRight } from "lucide-react";
 import { Icon } from "./_icons";
+import { Content } from "./_types";
 
 type Props = {
   handleCTA: () => void,
-  content: {
-    modal?: string,
-    card?: string,
-    cta?: string,
-    color?: string,
-    image?: string
-  }
+  content: Content
 }
 
 export const InfoCard = ({ content, handleCTA }: Props) => {

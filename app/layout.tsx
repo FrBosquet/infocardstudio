@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${base.className} ${dancing.variable} dark`}>
+      <body className={`${base.className} ${dancing.variable} dark bg-gradient-to-b from-zinc-950 to-zinc-800`}>
         <Theme>
           {children}
         </Theme>
